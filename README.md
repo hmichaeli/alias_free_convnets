@@ -166,7 +166,27 @@ repository for the experiments.
 Copy the modified files and models from this repository. 
 
 ```
+# clone spatial-pytorch to be in the same directory as this repository
+git clone https://github.com/MadryLab/spatial-pytorch.git
+cd spatial-pytorch/
+# git checkout 14ffe976a2387669f183a3fbe45fffd82b992c83
+# copy convnext models
+cp -r ../alias_free_convnets/models/ ./robustness/imagenet_models/convnext
+# copy modified files
+cp -r ../alias_free_convnets/spatial-pytorch/* .
+
+# install aditional requirements
+pip install -r requirements.txt
+pip install cox
 ```
+spatial-pytorch repository requires loading checkpoint in format of its own models.
+Use the script to convert the checkpoint to the format of spatial-pytorch models.
+```
+alias_free_convnets/spatial-pytorch/create_attacker_state_dict.py
+```
+
+
+
 ---
 
 ## Acknowledgement
