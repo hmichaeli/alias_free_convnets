@@ -1,4 +1,4 @@
-# Alias-Free Convnets: Fractional Shift Invariance via Polynomial Activations
+# [Alias-Free Convnets: Fractional Shift Invariance via Polynomial Activations](https://arxiv.org/abs/2303.08085)
 
 Official PyTorch implementation
 
@@ -41,7 +41,7 @@ Download the [ImageNet-1K](http://image-net.org/) classification dataset and str
       img4.jpeg
 ```
 
-
+---
 ## Train models
 
 ### Original ConvNeXt-Tiny
@@ -101,7 +101,7 @@ python -m torch.distributed.launch --nproc_per_node=8 --master_port=1440 main.py
 
 ```
 
-### Train ConvNeXt-Tiny-APS
+### ConvNeXt-Tiny-APS
 
 ```
 python -m torch.distributed.launch --nproc_per_node=8 --master_port=1440 main.py \
@@ -119,14 +119,14 @@ python -m torch.distributed.launch --nproc_per_node=8 --master_port=1440 main.py
  --epochs 300 --warmup_epochs 20 \
 
 ```
-
+---
 
 ## Checkpoints
  
 Trained models can be downloaded from:
 https://drive.google.com/drive/folders/1IsqMWL8OVKNDQ7CNaHe8F2ox7GDmwMUs?usp=share_link
 
-
+---
 
 ## Acknowledgement
 This repository is built using [Truly shift invariant CNNs](https://github.com/achaman2/truly_shift_invariant_cnns/tree/9c319a2f4734745b1a8f2375981750867db1078a) 
@@ -141,5 +141,21 @@ and [ConvNeXt](https://github.com/facebookresearch/ConvNeXt/tree/9a7b47bd6a6c156
 
 [//]: # (    * conda version )
 [//]: # (Python 3.8	Miniconda3 Linux 64-bit	98.8 MiB	935d72deb16e42739d69644977290395561b7a6db059b316958d97939e9bdf3d)
+
+---
+## Citation
+If you find this repository helpful, please consider citing:
+```
+@misc{https://doi.org/10.48550/arxiv.2303.08085,
+  doi = {10.48550/ARXIV.2303.08085},
+  url = {https://arxiv.org/abs/2303.08085},
+  author = {Michaeli, Hagay and Michaeli, Tomer and Soudry, Daniel},
+  keywords = {Computer Vision and Pattern Recognition (cs.CV), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering},
+  title = {Alias-Free Convnets: Fractional Shift Invariance via Polynomial Activations},
+  publisher = {arXiv},
+  year = {2023},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
 
 ---
