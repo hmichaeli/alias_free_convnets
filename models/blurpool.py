@@ -1,4 +1,7 @@
-#Code originally from https://github.com/adobe/antialiased-cnns
+# Code originally from https://github.com/adobe/antialiased-cnns
+# Copyright 2019 Adobe. All rights reserved.
+## Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+
 import torch
 import torch.nn.parallel
 import numpy as np

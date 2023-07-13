@@ -1,3 +1,4 @@
+#Code originally from  https://github.com/achaman2/truly_shift_invariant_cnns
 import torch
 import torch.nn.parallel
 import numpy as np
