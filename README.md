@@ -123,8 +123,8 @@ python -m torch.distributed.launch --nproc_per_node=8 --master_port=1440 main.py
 
 ## Checkpoints
  
-Trained models can be downloaded from:
-https://drive.google.com/drive/folders/1IsqMWL8OVKNDQ7CNaHe8F2ox7GDmwMUs?usp=share_link
+Trained models can be Found in:
+[https://huggingface.co/hmichaeli/convnext-afc](https://huggingface.co/hmichaeli/convnext-afc)
 
 ---
 
