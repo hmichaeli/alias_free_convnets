@@ -146,15 +146,13 @@ and [ConvNeXt](https://github.com/facebookresearch/ConvNeXt/tree/9a7b47bd6a6c156
 ## Citation
 If you find this repository helpful, please consider citing:
 ```
-@misc{https://doi.org/10.48550/arxiv.2303.08085,
-  doi = {10.48550/ARXIV.2303.08085},
-  url = {https://arxiv.org/abs/2303.08085},
-  author = {Michaeli, Hagay and Michaeli, Tomer and Soudry, Daniel},
-  keywords = {Computer Vision and Pattern Recognition (cs.CV), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering},
-  title = {Alias-Free Convnets: Fractional Shift Invariance via Polynomial Activations},
-  publisher = {arXiv},
-  year = {2023},
-  copyright = {arXiv.org perpetual, non-exclusive license}
+@InProceedings{Michaeli_2023_CVPR,
+    author    = {Michaeli, Hagay and Michaeli, Tomer and Soudry, Daniel},
+    title     = {Alias-Free Convnets: Fractional Shift Invariance via Polynomial Activations},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {16333-16342}
 }
 ```
 
