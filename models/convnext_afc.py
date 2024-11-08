@@ -150,11 +150,14 @@ class ConvNeXtAFC(nn.Module):
             trunc_normal_(m.weight, std=self.init_weight_std)
             nn.init.constant_(m.bias, 0)
 
-    def forward_features(self, x):
+    def forward_features(self, x, avgpool=True):
         for i in range(4):
             x = self.downsample_layers[i](x)
             x = self.stages[i](x)
-        return self.norm(x.mean([-2, -1])) # global average pooling, (N, C, H, W) -> (N, C)
+        if avgpool:
+            x = self.norm(x.mean([-2, -1])) # global average pooling, (N, C, H, W) -> (N, C)
+        return x
+
 
     def forward(self, x):
         x = self.forward_features(x)
