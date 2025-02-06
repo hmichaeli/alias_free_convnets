@@ -24,16 +24,16 @@ class RepLayer(nn.Module):
         lamda = self.r0 * self.iter / self.total_step
         if self.iter > 0 and self.training:
             self.iter.copy_(self.iter - 1)
-        x1 = self.norm1(x)
-        x2 = self.norm2(x)
+        x1 = self.layer1(x)
+        x2 = self.layer2(x)
         x = lamda * x1 + (1 - lamda) * x2
         return x
 
 class MLPRepAF(nn.Module):
     def __init__(self, dim, expand_ratio, activation, activation_kwargs={}, rep_steps=300000):
-        super(MLP, self).__init__()
+        super(MLPRepAF, self).__init__()
         self.pwconv1 = nn.Linear(dim, expand_ratio * dim)  # pointwise/1x1 convs, implemented with linear layers
-        self.act = RepLayer(nn.GeLU(),
+        self.act = RepLayer(nn.GELU(),
                             get_activation(activation, channels=expand_ratio * dim, data_format='channels_last', **activation_kwargs),
                             step=rep_steps
                             )
@@ -124,7 +124,7 @@ class ConvNeXtRepAFC(nn.Module):
         
         stem = nn.Sequential(
                 conv4x4(in_chans, dims[0], stride=1, conv_pad_type=conv_pad_type, padding=[1, 2, 1, 2]),
-                RepLayer(nn.Gelu(),
+                RepLayer(nn.GELU(),
                         get_activation(stem_activation, dims[0], "channels_first", **stem_activation_kwargs),
                         step=rep_steps),
                 RepLayer(BlurPool(dims[0], conv_pad_type, stride=4, filter_type='basic', filt_size=1), # equiv to stride 4
@@ -143,7 +143,7 @@ class ConvNeXtRepAFC(nn.Module):
                                         step=rep_steps),
                                     
                                 conv2x2(dims[i], dims[i + 1], stride=1, conv_pad_type=conv_pad_type, padding=[0,1,0,1]),
-                                RepLayer(BlurPool(dims[i+1], conv_pad_type, stride=4, filter_type='basic', filt_size=1), # equiv to stride 4
+                                RepLayer(BlurPool(dims[i+1], conv_pad_type, stride=2, filter_type='basic', filt_size=1), # equiv to stride 4
                                             BlurPool(dims[i + 1], conv_pad_type, stride=2, **blurpool_kwargs),
                                             step=rep_steps)
             )

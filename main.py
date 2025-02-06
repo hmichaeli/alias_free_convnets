@@ -137,7 +137,7 @@ def main(args):
 
     total_batch_size = args.batch_size * args.update_freq * utils.get_world_size()
     num_training_steps_per_epoch = len(dataset_train) // total_batch_size
-    total_training_steps = num_training_steps_per_epoch * args.num_epochs
+    total_training_steps = num_training_steps_per_epoch * args.epochs
     print("LR = %.8f" % args.lr)
     print("Batch size = %d" % total_batch_size)
     print("Update frequent = %d" % args.update_freq)
