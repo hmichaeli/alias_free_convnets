@@ -137,14 +137,16 @@ def main(args):
 
     total_batch_size = args.batch_size * args.update_freq * utils.get_world_size()
     num_training_steps_per_epoch = len(dataset_train) // total_batch_size
+    total_training_steps = num_training_steps_per_epoch * args.num_epochs
     print("LR = %.8f" % args.lr)
     print("Batch size = %d" % total_batch_size)
     print("Update frequent = %d" % args.update_freq)
     print("Number of training examples = %d" % len(dataset_train))
     print("Number of training training per epoch = %d" % num_training_steps_per_epoch)
+    print("Number of total training steps = %d" % total_training_steps)
 
 
-    model = get_model(args)
+    model = get_model(args, total_steps=total_training_steps)
 
     # sample inputs
     matplotlib.use('Agg')  # turn off gui - use on dgx cluster
