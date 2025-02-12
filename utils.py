@@ -933,7 +933,7 @@ def get_args():
     return args
 
 
-def get_model(args, pretrained=False, total_steps=0):
+def get_model(args, pretrained=False):
     if args.model == 'convnext_tiny':
         from models.convnext import convnext_tiny
         model = convnext_tiny(
@@ -1001,21 +1001,6 @@ def get_model(args, pretrained=False, total_steps=0):
             init_weight_std=args.init_weight_std,
             **args.model_kwargs
         )
-    elif args.model == 'convnext_rep_afc_tiny':
-        from models.convnext_rep_afc import convnext_rep_afc_tiny
-        model = convnext_rep_afc_tiny(
-                        pretrained=pretrained,
-                        num_classes=args.nb_classes,
-                        drop_path_rate=args.drop_path,
-                        layer_scale_init_value=args.layer_scale_init_value,
-                        head_init_scale=args.head_init_scale,
-                        activation=args.activation,
-                        activation_kwargs=args.activation_kwargs,
-                        blurpool_kwargs=args.blurpool_kwargs,
-                        normalization_type=args.normalization_type,
-                        init_weight_std=args.init_weight_std,
-                        rep_steps=total_steps,
-                        **args.model_kwargs)
 
     return model
 
